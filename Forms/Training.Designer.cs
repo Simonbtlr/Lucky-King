@@ -45,7 +45,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Lucky_King.Properties.Resources._100x100;
+            this.pictureBox1.Image = global::Lucky_King.Properties.Resources.Filling_100x100_square;
             this.pictureBox1.Location = new System.Drawing.Point(582, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);

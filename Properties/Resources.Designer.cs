@@ -63,9 +63,9 @@ namespace Lucky_King.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _100x100 {
+        internal static System.Drawing.Bitmap Filling_100x100_square {
             get {
-                object obj = ResourceManager.GetObject("_100x100", resourceCulture);
+                object obj = ResourceManager.GetObject("Filling 100x100 square", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
