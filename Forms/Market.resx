@@ -117,27 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="StartMessage1" xml:space="preserve">
-    <value>Дороу, игрок. Сейчас я научу тебя играть в эту игру.
-
-Но для начала представься, чтобы мы с тобой понимали кто из нас кто, и придумай название своему роду.</value>
-  </data>
-  <data name="StartMessage2" xml:space="preserve">
-    <value>Серьёзно? Мда-а... Мог бы что-нибудь получше придумать. Или это тебя так мама назвала? Ладно, у меня всё равно имени нет, так что не буду придираться.
-
-Итак, смотри: у тебя есть РЕСУРСЫ. Они нужны для того, чтобы ты мог выполнить некоторые задания. Не волнуйся, если не будет хватать некоторых ресурсов! Скорее всего разраб даже не парился над балансом в этой игре.</value>
-  </data>
-  <data name="StartMessage3" xml:space="preserve">
-    <value>Итак, давай приступим к первому заданию. 
-Вот тебе 20 монет. Сходи за хлебом.
-
-Для этого тебе нужно открыть карту и выбрать РЫНОК.</value>
-  </data>
-  <data name="StartMessageError1" xml:space="preserve">
-    <value>Нет, так не пойдет. Заполни все поля!</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_100x100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Pictures\100x100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

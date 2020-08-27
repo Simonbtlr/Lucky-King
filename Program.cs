@@ -4,14 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Lucky_King.Classes;
+
 namespace Lucky_King
 {
-    static class Program
+    class Program
     {
-        
-        static void Main()
+        public static Engine engine = new Engine();
+
+        static void Main(String[] args)
         {
-            
+            Application.Run();
         }
     }
 }
