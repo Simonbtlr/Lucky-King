@@ -66,6 +66,12 @@ namespace Lucky_King.Classes
             }
         }
 
+        public void BuildForm(Form form)
+        {
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackgroundImage = Resources.Background;
+        }
+
         public void Training()
         {
             trainingForm = new Training(this, player, game, false);
