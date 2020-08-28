@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TextPlace = new System.Windows.Forms.Label();
             this.PlayerName = new System.Windows.Forms.Label();
+            this.formsEdits1 = new Lucky_King.Other.FormsEdits(this.components);
             this.SuspendLayout();
             // 
             // TextPlace
@@ -54,6 +56,11 @@
             this.PlayerName.Size = new System.Drawing.Size(154, 20);
             this.PlayerName.TabIndex = 1;
             this.PlayerName.Text = "Sample Player Name";
+            // 
+            // formsEdits1
+            // 
+            this.formsEdits1.form = this;
+            this.formsEdits1.FormStyle = Lucky_King.Other.FormsEdits.fStyle.None;
             // 
             // Training
             // 
@@ -80,5 +87,6 @@
 
         private System.Windows.Forms.Label TextPlace;
         private System.Windows.Forms.Label PlayerName;
+        private Other.FormsEdits formsEdits1;
     }
 }

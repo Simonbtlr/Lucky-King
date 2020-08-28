@@ -86,6 +86,12 @@
     <Compile Include="Forms\Training.Designer.cs">
       <DependentUpon>Training.cs</DependentUpon>
     </Compile>
+    <Compile Include="Other\FormsEdits.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Other\FormsEdits.Designer.cs">
+      <DependentUpon>FormsEdits.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Map.resx">
