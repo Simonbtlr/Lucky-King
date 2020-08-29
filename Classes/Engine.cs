@@ -35,6 +35,7 @@ namespace Lucky_King.Classes
         Training trainingForm;
         Map mapForm;
         Market marketForm;
+        SettingsForm settingsForm;
 
         public Engine()
         {
@@ -66,12 +67,6 @@ namespace Lucky_King.Classes
             }
         }
 
-        public void BuildForm(Form form)
-        {
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.BackgroundImage = Resources.Background;
-        }
-
         public void Training()
         {
             trainingForm = new Training(this, player, game, false);
@@ -92,9 +87,36 @@ namespace Lucky_King.Classes
             }
         }
 
+        public void OpenSettingsForm(Form f)
+        {
+            f.Visible = false;
+
+            settingsForm = new SettingsForm();
+            DialogResult dr = settingsForm.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                ApplySettings(settingsForm);
+            }
+        }
+
+        private void ApplySettings(Form f)
+        {
+
+        }
+
         public void CloseGame()
         {
-            Environment.Exit(0);
+            DialogResult dr = MessageBox.Show("Вы действительно хотите выйти?", "Внимание!", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(dr == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                return;
+            }
         }
 
         public void LoadGame()

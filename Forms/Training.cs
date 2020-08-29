@@ -34,8 +34,16 @@ namespace Lucky_King.Forms
             {
                 stage = 3;
             }
+        }
 
-            engine.BuildForm(this);
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            engine.CloseGame();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            engine.OpenSettingsForm(this);
         }
     }
 }

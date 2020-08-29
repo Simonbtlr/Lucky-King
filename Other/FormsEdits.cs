@@ -55,6 +55,8 @@ namespace Lucky_King.Other
         {
             form.FormBorderStyle = FormBorderStyle.None;
             form.BackgroundImage = Resources.Background;
+            form.Size = new Size(710, 420);
+            form.StartPosition = FormStartPosition.CenterScreen;
 
             form.MouseDown += Form_MouseDown;
             form.MouseUp += Form_MouseUp;
@@ -77,7 +79,7 @@ namespace Lucky_King.Other
 
         private void Form_MouseDown(object sender, MouseEventArgs e)
         {
-            if(e.Location.Y <= 25)
+            if(e.Location.Y <= 20)
             {
                 mousePressed = true;
                 clickPosition = Cursor.Position;

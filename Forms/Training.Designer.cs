@@ -31,7 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.TextPlace = new System.Windows.Forms.Label();
             this.PlayerName = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SaveButton = new System.Windows.Forms.PictureBox();
             this.formsEdits1 = new Lucky_King.Other.FormsEdits(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SaveButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // TextPlace
@@ -57,10 +63,42 @@
             this.PlayerName.TabIndex = 1;
             this.PlayerName.Text = "Sample Player Name";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Lucky_King.Properties.Resources.Exit;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 375);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.BackColor = System.Drawing.Color.Transparent;
+            this.SaveButton.Image = global::Lucky_King.Properties.Resources.Save;
+            this.SaveButton.Location = new System.Drawing.Point(60, 375);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(40, 40);
+            this.SaveButton.TabIndex = 3;
+            this.SaveButton.TabStop = false;
+            // 
             // formsEdits1
             // 
             this.formsEdits1.form = this;
             this.formsEdits1.FormStyle = Lucky_King.Other.FormsEdits.fStyle.None;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Lucky_King.Properties.Resources.Settings;
+            this.pictureBox2.Location = new System.Drawing.Point(105, 375);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // Training
             // 
@@ -69,6 +107,9 @@
             this.BackgroundImage = global::Lucky_King.Properties.Resources.Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(710, 420);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PlayerName);
             this.Controls.Add(this.TextPlace);
             this.DoubleBuffered = true;
@@ -78,6 +119,9 @@
             this.Name = "Training";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Обучение";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SaveButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,5 +132,8 @@
         private System.Windows.Forms.Label TextPlace;
         private System.Windows.Forms.Label PlayerName;
         private Other.FormsEdits formsEdits1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox SaveButton;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
