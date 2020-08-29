@@ -7,25 +7,21 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
 using System.Windows.Forms;
-
-using Lucky_King.Properties;
-using Lucky_King.Forms;
 using System.Xml.Linq;
 using System.Data;
 using System.Threading;
+
+using Lucky_King.Properties;
+using Lucky_King.Forms;
 
 namespace Lucky_King.Classes
 {
     public class Engine
     {
-        bool textTypingEffect;
-
         string savesPath;
-        string picturesPath;
         string gameSave;
         string playerSave;
-
-        Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        string lastForm;
         
         XmlDocument xmlDoc = new XmlDocument();
 
@@ -41,10 +37,8 @@ namespace Lucky_King.Classes
         {
             //From settings
             savesPath = Settings.Default.SavesPath;
-            picturesPath = Settings.Default.PicturesPath;
             gameSave = savesPath + Settings.Default.GameSave;
             playerSave = savesPath + Settings.Default.PlayerSave;
-            textTypingEffect = Settings.Default.TextTypingEffect;
 
             //Files
             if (!File.Exists(gameSave) || !File.Exists(playerSave))
@@ -52,99 +46,21 @@ namespace Lucky_King.Classes
                 ErrorMessage(0);
             }
 
-            //Icons/Pictures
-            if (!Directory.Exists(picturesPath))
-            {
-                ErrorMessage(1);
-            }
-
             LoadGame();
-            LoadPlayer();
 
             if(game.PlotStep == 0)
             {
                 Training();
             }
-        }
-
-        public void Training()
-        {
-            trainingForm = new Training(this, player, game, false);
-            trainingForm.Show();
-        }
-
-        public void LoadPlayer()
-        {
-            xmlDoc.Load(playerSave);
-            XmlElement xRoot = xmlDoc.DocumentElement;
-
-            foreach (XmlNode xNode in xRoot)
-            {
-                if (xNode.Attributes.Count > 0)
-                {
-                    player.Name = xNode.Attributes.GetNamedItem("Name").Value;
-                }
-            }
-        }
-
-        public void OpenSettingsForm(Form f)
-        {
-            f.Visible = false;
-
-            settingsForm = new SettingsForm();
-            DialogResult dr = settingsForm.ShowDialog();
-
-            if (dr == DialogResult.OK)
-            {
-                ApplySettings(settingsForm);
-            }
-        }
-
-        private void ApplySettings(Form f)
-        {
-
-        }
-
-        public void CloseGame()
-        {
-            DialogResult dr = MessageBox.Show("Вы действительно хотите выйти?", "Внимание!", 
-                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if(dr == DialogResult.Yes)
-            {
-                Environment.Exit(0);
-            }
             else
             {
-                return;
+                OpenLastForm();
             }
         }
 
-        public void LoadGame()
-        {
-            xmlDoc.Load(gameSave);
-            XmlElement xRoot = xmlDoc.DocumentElement;
-       
-            foreach (XmlNode xNode in xRoot)
-            {
-                if (xNode.Attributes.Count > 0)
-                {
-                    game.VillageName = xNode.Attributes.GetNamedItem("Name").Value;
-                }
-                foreach (XmlNode xChild in xNode.ChildNodes)
-                {
-                    if(xChild.Name == "Coins")
-                    {
-                        game.Coins = Convert.ToInt32(xChild.InnerText);
-                    }
-                    if(xChild.Name == "PlotStep")
-                    {
-                        game.PlotStep = Convert.ToInt32(xChild.InnerText);
-                    }
-                }
-            }
-        }
+        #region Private Metods
 
-        public void ErrorMessage(int id)
+        private void ErrorMessage(int id)
         {
             string error = "Ошибка";
 
@@ -161,12 +77,97 @@ namespace Lucky_King.Classes
             Environment.Exit(0);
         }
 
-        public void OpenTrainingForm(Form f)
+        private void LoadGame()
         {
-            f.Close();
-            
-            trainingForm = new Training(this, player, game, true);
-            trainingForm.Show();
+            xmlDoc.Load(gameSave);
+            XmlElement xRoot = xmlDoc.DocumentElement;
+
+            foreach (XmlNode xNode in xRoot)
+            {
+                if (xNode.Attributes.Count > 0 && xNode.Name == "Kingdom")
+                {
+                    game.VillageName = xNode.Attributes.GetNamedItem("Name").Value;
+                }
+                if (xNode.Attributes.Count > 0 && xNode.Name == "Settings")
+                {
+                    lastForm = xNode.Attributes.GetNamedItem("LastUsedForm").Value;
+                }
+                foreach (XmlNode xChild in xNode.ChildNodes)
+                {
+                    if (xChild.Name == "Coins")
+                    {
+                        game.Coins = Convert.ToInt32(xChild.InnerText);
+                    }
+                    if (xChild.Name == "PlotStep")
+                    {
+                        game.PlotStep = Convert.ToInt32(xChild.InnerText);
+                    }
+                    if (xChild.Name == "TextTypeEffect")
+                    {
+                        Settings.Default.TextTypingEffect = Convert.ToBoolean(xChild.InnerText);
+                    }
+                }
+            }
+
+            LoadPlayer();
+        }
+
+        private void LoadPlayer()
+        {
+            xmlDoc.Load(playerSave);
+            XmlElement xRoot = xmlDoc.DocumentElement;
+
+            foreach (XmlNode xNode in xRoot)
+            {
+                if (xNode.Attributes.Count > 0)
+                {
+                    player.Name = xNode.Attributes.GetNamedItem("Name").Value;
+                }
+            }
+        }
+
+        private void OpenLastForm()
+        {
+            if(lastForm == "Обучение")
+            {
+                trainingForm = new Training(this, player, game);
+                trainingForm.Show();
+            }
+        }
+
+        private void SavePlayer()
+        {
+            xmlDoc.Load(playerSave);
+
+            XmlElement xRoot = xmlDoc.DocumentElement;
+
+            foreach (XmlNode xNode in xRoot)
+            {
+                if (xNode.Attributes.Count > 0 && xNode.Name == "Player")
+                {
+                    xNode.Attributes.GetNamedItem("Name").Value = player.Name;
+                }
+            }
+
+            xmlDoc.Save(playerSave);
+        }
+
+        #endregion
+
+        #region Public Metods
+
+        public void CloseGame(Form f)
+        {
+            DialogResult dr = MessageBox.Show("Вы действительно хотите выйти?", "Внимание!",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dr == DialogResult.Yes)
+            {
+                lastForm = f.Text;
+
+                SaveGame();
+
+                Environment.Exit(0);
+            }
         }
 
         public void OpenMapForm(int step, Form f)
@@ -185,17 +186,96 @@ namespace Lucky_King.Classes
             marketForm.Show();
         }
 
-        public void WriteMessage(Form f, string message, TextBox tb)
+        public void OpenSettingsForm(Form f)
         {
+            f.Visible = false;
+
+            settingsForm = new SettingsForm(this);
+            settingsForm.ShowDialog();
+        }
+
+        public void OpenTrainingForm(Form f)
+        {
+            f.Close();
+
+            trainingForm = new Training(this, player, game);
+            trainingForm.Show();
+        }
+
+        public void ResetToDefault()
+        {
+            DialogResult dr = MessageBox.Show("Вы действительно хотите установить настройки по умолчанию?", "Сброс", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                Settings.Default.TextTypingEffect = true;
+
+                MessageBox.Show("Настройки успешно применены!", "Готово", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void SaveGame()
+        {
+            xmlDoc.Load(gameSave);
+
+            XmlElement xRoot = xmlDoc.DocumentElement;
+
+            foreach (XmlNode xNode in xRoot)
+            {
+                if (xNode.Attributes.Count > 0 && xNode.Name == "Kingdom")
+                {
+                    xNode.Attributes.GetNamedItem("Name").Value = game.VillageName;
+                }
+                
+                if (xNode.Attributes.Count > 0 && xNode.Name == "Settings")
+                {
+                    xNode.Attributes.GetNamedItem("LastUsedForm").Value = lastForm;
+                }
+
+                foreach (XmlNode xChild in xNode.ChildNodes)
+                {
+                    if(xChild.Name == "Coins")
+                    {
+                        xChild.InnerText = Convert.ToString(game.Coins);
+                    }
+
+                    if(xChild.Name == "PlotStep")
+                    {
+                        xChild.InnerText = Convert.ToString(game.PlotStep);
+                    }
+
+                    if(xChild.Name == "TextTypingEffect")
+                    {
+                        xChild.InnerText = Convert.ToString(Settings.Default.TextTypingEffect);
+                    }
+                }
+            }
+
+            xmlDoc.Save(gameSave);
+
+            SavePlayer();
+        }
+
+        public void Training()
+        {
+            trainingForm = new Training(this, player, game);
+            trainingForm.Show();
+        }
+
+        public void WriteMessage(Form f, string message, Label lb)
+        {
+            lb.BeginInvoke((MethodInvoker)(() => lb.Text = ""));
             for (int i = 0; i < message.Length; i++)
             {
-                tb.Text += message[i];
-                if (textTypingEffect == true)
+                lb.BeginInvoke((MethodInvoker)(() => lb.Text += message[i]));
+                if (Settings.Default.TextTypingEffect == true)
                 {
                     Thread.Sleep(70);
-                    f.Update();
+                    f.BeginInvoke((MethodInvoker)(() => f.Update()));
                 }
             }
         }
+
+        #endregion
     }
 }

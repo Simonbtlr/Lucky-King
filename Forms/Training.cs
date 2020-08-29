@@ -16,13 +16,11 @@ namespace Lucky_King.Forms
 {
     public partial class Training : Form
     {
-        int stage = 0;
-
         Engine engine;
         Player player;
         Game game;
 
-        public Training(Engine eng, Player p, Game g, bool second)
+        public Training(Engine eng, Player p, Game g)
         {
             InitializeComponent();
 
@@ -30,20 +28,47 @@ namespace Lucky_King.Forms
             player = p;
             game = g;
 
-            if (second)
-            {
-                stage = 3;
-            }
+            PlayerName.Text = player.Name;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            engine.CloseGame();
+            engine.CloseGame(this);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             engine.OpenSettingsForm(this);
+        }
+
+        private void NoButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Training_Load(object sender, EventArgs e)
+        {
+            if(game.PlotStep == 0)
+            {
+                YesButton.Text = "Начать обучение";
+                NoButton.Visible = false;
+            }
+        }
+
+        private async void YesButton_Click(object sender, EventArgs e)
+        {
+            YesButton.Enabled = false;
+
+            if(game.PlotStep == 0)
+            {
+                YesButton.Text = "Далее";
+
+                await Task.Run(() => engine.WriteMessage(this, Resources.StartMessage1, TextPlace));
+
+                game.PlotStep++;
+            }
+
+            YesButton.Enabled = true;
         }
     }
 }

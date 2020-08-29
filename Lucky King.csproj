@@ -139,7 +139,9 @@
   <ItemGroup>
     <None Include="Other\Images\Background.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Other\Images\NoButton.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Other\Icons\Exit.png" />
   </ItemGroup>
@@ -160,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Other\Icons\Yes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Other\Images\YesButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -133,6 +133,9 @@
   <data name="No" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Other\Icons\No.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NoButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Other\Images\NoButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Other\Icons\Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,5 +163,8 @@
   </data>
   <data name="Yes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Other\Icons\Yes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YesButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Other\Images\YesButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

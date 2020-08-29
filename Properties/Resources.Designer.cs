@@ -113,6 +113,16 @@ namespace Lucky_King.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NoButton {
+            get {
+                object obj = ResourceManager.GetObject("NoButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Save {
             get {
                 object obj = ResourceManager.GetObject("Save", resourceCulture);
@@ -179,6 +189,16 @@ namespace Lucky_King.Properties {
         internal static System.Drawing.Bitmap Yes {
             get {
                 object obj = ResourceManager.GetObject("Yes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YesButton {
+            get {
+                object obj = ResourceManager.GetObject("YesButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
