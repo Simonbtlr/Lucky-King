@@ -54,8 +54,6 @@ namespace Lucky_King.Other
         private void Apply()
         {
             form.FormBorderStyle = FormBorderStyle.None;
-            form.BackgroundImage = Resources.Background;
-            form.Size = new Size(710, 420);
             form.StartPosition = FormStartPosition.CenterScreen;
 
             form.MouseDown += Form_MouseDown;

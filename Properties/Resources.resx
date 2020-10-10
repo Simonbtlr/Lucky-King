@@ -121,8 +121,14 @@
   <data name="Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Other\Images\Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BackgroundMB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Other\Images\BackgroundMB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Other\Icons\Exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lucky_King" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Other\Icons\Lucky King.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Map" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Other\Icons\Map.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -143,23 +149,22 @@
     <value>..\Other\Icons\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StartMessage1" xml:space="preserve">
-    <value>Дороу, игрок. Сейчас я научу тебя играть в эту игру.
+    <value>Оу, привет!
+Я давно не видела людей в этих краях. Как ты тут оказался?
 
-Но для начала представься, чтобы мы с тобой понимали кто из нас кто, и придумай название своему роду.</value>
+Не знаешь значит. Наверное ты заблудился. Я попытаюсь помочь тебе. Но сначала давай познакомимся.
+Как тебя зовут и откуда ты?</value>
   </data>
   <data name="StartMessage2" xml:space="preserve">
-    <value>Серьёзно? Мда-а... Мог бы что-нибудь получше придумать. Или это тебя так мама назвала? Ладно, у меня всё равно имени нет, так что не буду придираться.
+    <value>Приятно познакомиться!
 
-Итак, смотри: у тебя есть РЕСУРСЫ. Они нужны для того, чтобы ты мог выполнить некоторые задания. Не волнуйся, если не будет хватать некоторых ресурсов! Скорее всего разраб даже не парился над балансом в этой игре.</value>
+Чтож, у меня есть хорошие новости. Я знаю, где находится твоя деревня, но проблема в том, что она очень далеко. Без КАРТЫ туда будет трудно добраться. Я бы дала тебе свою, но тогда появляется другая проблема: как бы мне отсюда выбраться.</value>
   </data>
-  <data name="StartMessage3" xml:space="preserve">
-    <value>Итак, давай приступим к первому заданию. 
-Вот тебе 20 монет. Сходи за хлебом.
-
-Для этого тебе нужно открыть карту и выбрать РЫНОК.</value>
+  <data name="StartMessage3.1" xml:space="preserve">
+    <value>Проводить тебя до дома? Ну давай попробуем. Вот тебе карта, веди нас.</value>
   </data>
-  <data name="StartMessageError1" xml:space="preserve">
-    <value>Нет, так не пойдет. Заполни все поля!</value>
+  <data name="StartMessage3.2" xml:space="preserve">
+    <value>Отдать тебе карту и ждать, пока ты принесёшь мне её обратно? Нет, так дело не пойдет. Давай лучше я тебя провожу? Вот тебе карта, показывай куда идти.</value>
   </data>
   <data name="Yes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Other\Icons\Yes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

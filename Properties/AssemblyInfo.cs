@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
 [assembly: AssemblyTitle("Lucky King")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Игра от студента :)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Lucky King")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Simon")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

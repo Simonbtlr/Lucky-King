@@ -9,5 +9,7 @@ namespace Lucky_King.Classes
     public class Player
     {
         public string Name;
+
+        public int LuckyChanse;
     }
 }

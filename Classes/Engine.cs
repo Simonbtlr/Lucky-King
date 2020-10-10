@@ -32,6 +32,7 @@ namespace Lucky_King.Classes
         Map mapForm;
         Market marketForm;
         SettingsForm settingsForm;
+        Hello helloForm;
 
         public Engine()
         {
@@ -170,6 +171,12 @@ namespace Lucky_King.Classes
             }
         }
 
+        public void OpenHelloForm()
+        {
+            helloForm = new Hello(this, game, player);
+            helloForm.ShowDialog();
+        }
+
         public void OpenMapForm(int step, Form f)
         {
             f.Close();
@@ -267,11 +274,16 @@ namespace Lucky_King.Classes
             lb.BeginInvoke((MethodInvoker)(() => lb.Text = ""));
             for (int i = 0; i < message.Length; i++)
             {
-                lb.BeginInvoke((MethodInvoker)(() => lb.Text += message[i]));
                 if (Settings.Default.TextTypingEffect == true)
                 {
+                    lb.BeginInvoke((MethodInvoker)(() => lb.Text += message[i]));
                     Thread.Sleep(70);
                     f.BeginInvoke((MethodInvoker)(() => f.Update()));
+                }
+                else
+                {
+                    lb.BeginInvoke((MethodInvoker)(() => lb.Text = message));
+
                 }
             }
         }

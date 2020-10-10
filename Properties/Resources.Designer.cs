@@ -73,10 +73,30 @@ namespace Lucky_King.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackgroundMB {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundMB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Exit {
             get {
                 object obj = ResourceManager.GetObject("Exit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon Lucky_King {
+            get {
+                object obj = ResourceManager.GetObject("Lucky_King", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -141,9 +161,11 @@ namespace Lucky_King.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Дороу, игрок. Сейчас я научу тебя играть в эту игру.
+        ///   Ищет локализованную строку, похожую на Оу, привет!
+        ///Я давно не видела людей в этих краях. Как ты тут оказался?
         ///
-        ///Но для начала представься, чтобы мы с тобой понимали кто из нас кто, и придумай название своему роду..
+        ///Не знаешь значит. Наверное ты заблудился. Я попытаюсь помочь тебе. Но сначала давай познакомимся.
+        ///Как тебя зовут и откуда ты?.
         /// </summary>
         internal static string StartMessage1 {
             get {
@@ -152,9 +174,9 @@ namespace Lucky_King.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Серьёзно? Мда-а... Мог бы что-нибудь получше придумать. Или это тебя так мама назвала? Ладно, у меня всё равно имени нет, так что не буду придираться.
+        ///   Ищет локализованную строку, похожую на Приятно познакомиться!
         ///
-        ///Итак, смотри: у тебя есть РЕСУРСЫ. Они нужны для того, чтобы ты мог выполнить некоторые задания. Не волнуйся, если не будет хватать некоторых ресурсов! Скорее всего разраб даже не парился над балансом в этой игре..
+        ///Чтож, у меня есть хорошие новости. Я знаю, где находится твоя деревня, но проблема в том, что она очень далеко. Без КАРТЫ туда будет трудно добраться. Я бы дала тебе свою, но тогда появляется другая проблема: как бы мне отсюда выбраться..
         /// </summary>
         internal static string StartMessage2 {
             get {
@@ -163,23 +185,20 @@ namespace Lucky_King.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Итак, давай приступим к первому заданию. 
-        ///Вот тебе 20 монет. Сходи за хлебом.
-        ///
-        ///Для этого тебе нужно открыть карту и выбрать РЫНОК..
+        ///   Ищет локализованную строку, похожую на Проводить тебя до дома? Ну давай попробуем. Вот тебе карта, веди нас..
         /// </summary>
-        internal static string StartMessage3 {
+        internal static string StartMessage3_1 {
             get {
-                return ResourceManager.GetString("StartMessage3", resourceCulture);
+                return ResourceManager.GetString("StartMessage3.1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Нет, так не пойдет. Заполни все поля!.
+        ///   Ищет локализованную строку, похожую на Отдать тебе карту и ждать, пока ты принесёшь мне её обратно? Нет, так дело не пойдет. Давай лучше я тебя провожу? Вот тебе карта, показывай куда идти..
         /// </summary>
-        internal static string StartMessageError1 {
+        internal static string StartMessage3_2 {
             get {
-                return ResourceManager.GetString("StartMessageError1", resourceCulture);
+                return ResourceManager.GetString("StartMessage3.2", resourceCulture);
             }
         }
         
